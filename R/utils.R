@@ -1,7 +1,7 @@
 #' @importFrom attempt stop_if_not
 #' @importFrom curl has_internet
 check_internet <- function(){
-  stop_if_not(.x = has_internet(), msg = "Please check your internet connexion")
+  attempt::stop_if_not(.x = curl::has_internet(), msg = "Please check your internet connection")
 }
 
 #' @importFrom httr status_code
@@ -10,6 +10,3 @@ check_status <- function(res){
               .p = ~ .x == 200,
               msg = "The API returned an error")
 }
-
-base_url <- "https://api.jikan.moe/v3/anime/"
-#reverse_url <- "https://api-adresse.data.gouv.fr/reverse/"

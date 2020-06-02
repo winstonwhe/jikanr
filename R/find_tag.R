@@ -7,18 +7,18 @@ find_tag <- function(Name, sourceType = "") {
 }
 
 
-find_anime_tag <- function(Name) {
+find_tag_anime <- function(Name) {
   find_tag(Name, sourceType = '/anime/')
 }
 
-find_manga_tag <- function(Name) {
+find_tag_manga <- function(Name) {
   find_tag(Name, sourceType = '/manga/')
 }
 
-find_people_tag <- function(Name) {
+find_tag_people <- function(Name) {
   find_tag(Name, sourceType = '/people/')
 }
 
-find_character_tag <- function(Name) {
+find_tag_character <- function(Name) {
   find_tag(Name, sourceType = '/character/')
 }
