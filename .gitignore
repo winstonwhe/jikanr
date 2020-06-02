@@ -1,0 +1,14 @@
+# R
+*.Rproj.user
+*.Rhistory
+*.RData
+*.Ruserdata
+# System
+*.DS_store
+# Data
+*.nc
+# Directories
+/public
+/wrk
+jikanr.Rproj
+.Rproj.user
