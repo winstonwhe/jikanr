@@ -1,0 +1,21 @@
+Package: jikanr
+Title: Jikan API R Wrapper
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Winston",
+           family = "Eng",
+           role = c("cre", "aut"),
+           email = "winstonwhe@pm.me")
+Description: This is a wrapper for the jikan API which
+    queries data from MyAnimeList
+License: MIT + file LICENSE
+URL: https://github.com/winstonwhe/jikanr
+BugReports: https://github.com/winstonwhe/jikanr/issues
+Imports: 
+    attempt,
+    curl,
+    httr,
+    jsonlite,
+    purrr
+Encoding: UTF-8
+LazyData: true
