@@ -22,7 +22,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 
 ## Overview
 
-jikanr is a R wrapper for the jikan API, an unofficial API for MyAnimeList.
+jikanr is a R wrapper for the [jikan](https://jikan.moe), an unofficial API for MyAnimeList.
 
 ## Installation
 

@@ -10,8 +10,8 @@
 
 ## Overview
 
-jikanr is a R wrapper for the jikan API, an unofficial API for
-MyAnimeList.
+jikanr is a R wrapper for the [jikan](https://jikan.moe), an unofficial
+API for MyAnimeList.
 
 ## Installation
 
