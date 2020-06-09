@@ -37,8 +37,6 @@ devtools::install_github("winstonwhe/jikanr")
 ## Usage
 
 ```{r setup, message = FALSE, warning = FALSE, eval = FALSE}
-# Installing the jikanr library
-devtools::install_github("winstonwhe/jikanr")
 # loading in the jikanr library
 library(jikanr)
 ```
@@ -118,7 +116,7 @@ Selection: 1
 
 Note: This table is transposed for display purposes; the actual return is wide instead of long. Moreover, the data is returned as a R DataFrame.
 
-### `find_tag` allows provides a prompt to make sure the correct name is used
+### `find_tag` provides a prompt to make sure the correct name is used
 
 The MAL website assigns an unique number to each item in its website, and as a result, jikan requires that distinct value in order to reference the proper item that you wish to learn more about. Since it's very often the case that an user won't know that number off the top of her head, jikanr relies on the `find_tag` family of functions to scrap the MAL website and determine the proper value for the API call. One benefit of the method on which jikanr relies is that the user can search for part of the name, and the names returned should be identical to what the website search bar should display. By this method, the user should have no issue getting the proper item returned.
 

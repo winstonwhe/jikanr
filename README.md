@@ -26,8 +26,6 @@ devtools::install_github("winstonwhe/jikanr")
 ## Usage
 
 ``` r
-# Installing the jikanr library
-devtools::install_github("winstonwhe/jikanr")
 # loading in the jikanr library
 library(jikanr)
 ```
@@ -111,7 +109,7 @@ Note: This table is transposed for display purposes; the actual return
 is wide instead of long. Moreover, the data is returned as a R
 DataFrame.
 
-### `find_tag` allows provides a prompt to make sure the correct name is used
+### `find_tag` provides a prompt to make sure the correct name is used
 
 The MAL website assigns an unique number to each item in its website,
 and as a result, jikan requires that distinct value in order to
