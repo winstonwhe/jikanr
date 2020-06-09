@@ -1,24 +1,52 @@
-find_tag <- function(Name, sourceType = "") {
-  webpage <- xml2::read_html(paste("https://myanimelist.net/search/all?q=", gsub(" ", "%20", Name), sep = ""))
+#' Find the correct name for the search item
+#'
+#' @param name the MAL name of interest
+#' @param sourceType the type of medium of the search i.e. manga, anime, character, person
+#'
+#' @importFrom attempt stop_if_all
+#' @importFrom xml2 read_html
+#' @importFrom rvest html_nodes
+#' @importFrom rvest html_attr
+#' @importFrom utils menu
+#' @export
+#' @rdname findtag
+#'
+#' @return returns the index number for the search item; combines with info_general functions to gather the actual data
+#' @examples
+#' \dontrun{
+#' find_tag("naruto")
+#' find_anime('naruto')
+#' find_manga('naruto)
+#' find_character("naruto")
+#' find_people("hana kana")
+#' }
+#'
+
+find_tag <- function(name = NULL, sourceType = "") {
+  # make sure that an actual variable name was supplied
+  attempt::stop_if_all(name, is.null, "You need to specify a name to search")
+  # scrapping the MAL website to find all possible names related to the search
+  webpage <- xml2::read_html(paste("https://myanimelist.net/search/all?q=", gsub(" ", "%20", name), sep = ""))
   rank_data_html <- rvest::html_nodes(webpage, '.hoverinfo_trigger')
   rank_data_text <- unique(rvest::html_attr(rank_data_html, 'href'))
   rank_data_url <- rank_data_text[grepl(sourceType, rank_data_text)]
+  # adding the option for user to determine which name they actually want to have returned from the search results
   gsub('.*/', "", dirname(rank_data_url))[utils::menu(choices = basename(rank_data_url), title = paste('Which ', sourceType, ' do you want to choose?', sep = ""))]
 }
 
 
-find_tag_anime <- function(Name) {
-  find_tag(Name, sourceType = '/anime/')
+find_tag_anime <- function(name) {
+  find_tag(name, sourceType = '/anime/')
 }
 
-find_tag_manga <- function(Name) {
-  find_tag(Name, sourceType = '/manga/')
+find_tag_manga <- function(name) {
+  find_tag(name, sourceType = '/manga/')
 }
 
-find_tag_people <- function(Name) {
-  find_tag(Name, sourceType = '/people/')
+find_tag_people <- function(name) {
+  find_tag(name, sourceType = '/people/')
 }
 
-find_tag_character <- function(Name) {
-  find_tag(Name, sourceType = '/character/')
+find_tag_character <- function(name) {
+  find_tag(name, sourceType = '/character/')
 }

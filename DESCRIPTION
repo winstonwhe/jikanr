@@ -6,8 +6,7 @@ Authors@R:
            family = "Eng",
            role = c("cre", "aut"),
            email = "winstonwhe@pm.me")
-Description: This is a wrapper for the jikan API which
-    queries data from MyAnimeList
+Description: This is a wrapper for the jikan API which queries data from MyAnimeList.
 License: MIT + file LICENSE
 URL: https://github.com/winstonwhe/jikanr
 BugReports: https://github.com/winstonwhe/jikanr/issues
@@ -16,6 +15,15 @@ Imports:
     curl,
     httr,
     jsonlite,
-    purrr
+    purrr,
+    rlang,
+    rvest,
+    xml2
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.1.0
+Suggests: 
+    rmarkdown,
+    knitr,
+    testthat
+VignetteBuilder: knitr
