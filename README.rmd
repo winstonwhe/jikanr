@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 options(tibble.print_min = 5, tibble.print_max = 5)
 ```
 
-# jikanr
+# jikanr <img src='man/figures/logo.svg' align="right" height="139" />
 
 <!-- badges: start -->
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
@@ -37,20 +37,22 @@ devtools::install_github("winstonwhe/jikanr")
 ## Usage
 
 ```{r setup, message = FALSE, warning = FALSE, eval = FALSE}
+# Installing the jikanr library
+devtools::install_github("winstonwhe/jikanr")
 # loading in the jikanr library
 library(jikanr)
 ```
 
 ### `info_*` queries the MAL API for specific items
 
-The all-purpose function `info_general` allows the user to query data from the [jikan](https://jikan.moe), the unofficial MyAnimeList (MAL) API. As a MAL search item can take on the category of manga, anime, character, or person, `info_manga`, `info_anime`, `info_character`, and `info_people` are available aliases respectively.
+The all-purpose function `general_info` allows the user to query data from the [jikan](https://jikan.moe), the unofficial MyAnimeList (MAL) API. As a MAL search item can take on the category of manga, anime, character, or person, `manga_info`, `anime_info`, `character_info`, and `people_info` are available aliases respectively.
 
 ### seeing it in action
 
 As it can be difficult to remember the full title of a specific item, jikanr relies on the user answering a prompt in order to query the data. For example:
 
 ```{r, eval = FALSE}
-info_anime('Made in Abyss')
+anime_info('Made in Abyss')
 ```
 
 ```
@@ -125,7 +127,7 @@ The MAL website assigns an unique number to each item in its website, and as a r
 For a quick bulk item search, a combination of the `purrr::map` function should return a list of dataframes including all of the searches. For example:
 
 ```{r, eval = FALSE}
-purrr::map(c('Vinland', 'Cowboy'), info_anime)
+purrr::map(c('Vinland', 'Cowboy'), anime_info)
 ```
 
 should return a list with information from both the "Vinland Saga" and "Cowboy Bebop" despite only having part of the animes' names.

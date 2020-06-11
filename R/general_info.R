@@ -8,19 +8,19 @@
 #' @importFrom httr GET
 #' @importFrom httr content
 #' @export
-#' @rdname infogeneral
+#' @rdname general_info
 #'
-#' @return the results from the search
+#' @return the results from the search in a dataframe format
+#' @export
 #' @examples
 #' \dontrun{
-#' info_general("naruto", type = 'anime')
-#' info_anime('naruto')
-#' info_manga('naruto)
-#' info_character("naruto")
-#' info_people("hana kana")
-#' }
-#'
-info_general <- function(name = NULL, type = NULL) {
+#' general_info('naruto', type = 'anime')
+#' anime_info('bakemonogatari')
+#' manga_info('Opus')
+#' character_info('Tomie')
+#' people_info('hana kana')
+#'}
+general_info <- function(name = NULL, type = NULL) {
   # make sure that an actual variable name was supplied
   attempt::stop_if_all(name, is.null, "You need to specify a name to search")
   # Check if internet connection exists
@@ -38,18 +38,26 @@ info_general <- function(name = NULL, type = NULL) {
   }
 }
 
-info_anime <- function(name, type = 'anime') {
-  info_general(name, type)
+#' @rdname general_info
+#' @export
+anime_info <- function(name, type = 'anime') {
+  general_info(name, type)
 }
 
-info_manga <- function(name, type = 'manga') {
-  info_general(name, type)
+#' @rdname general_info
+#' @export
+manga_info <- function(name, type = 'manga') {
+  general_info(name, type)
 }
 
-info_character <- function(name , type = 'character') {
-  info_general(name = type)
+#' @rdname general_info
+#' @export
+character_info <- function(name , type = 'character') {
+  general_info(name = type)
 }
 
-info_people <- function(name , type = 'people') {
-  info_general(name = type)
+#' @rdname general_info
+#' @export
+people_info <- function(name , type = 'people') {
+  general_info(name = type)
 }

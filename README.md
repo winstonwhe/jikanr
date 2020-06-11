@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# jikanr
+# jikanr <img src='man/figures/logo.svg' align="right" height="139" />
 
 <!-- badges: start -->
 
@@ -26,17 +26,19 @@ devtools::install_github("winstonwhe/jikanr")
 ## Usage
 
 ``` r
+# Installing the jikanr library
+devtools::install_github("winstonwhe/jikanr")
 # loading in the jikanr library
 library(jikanr)
 ```
 
 ### `info_*` queries the MAL API for specific items
 
-The all-purpose function `info_general` allows the user to query data
+The all-purpose function `general_info` allows the user to query data
 from the [jikan](https://jikan.moe), the unofficial MyAnimeList (MAL)
 API. As a MAL search item can take on the category of manga, anime,
-character, or person, `info_manga`, `info_anime`, `info_character`, and
-`info_people` are available aliases respectively.
+character, or person, `manga_info`, `anime_info`, `character_info`, and
+`people_info` are available aliases respectively.
 
 ### seeing it in action
 
@@ -45,7 +47,7 @@ jikanr relies on the user answering a prompt in order to query the data.
 For example:
 
 ``` r
-info_anime('Made in Abyss')
+anime_info('Made in Abyss')
 ```
 
     Which /anime/ do you want to choose? 
@@ -129,7 +131,7 @@ should return a list of dataframes including all of the searches. For
 example:
 
 ``` r
-purrr::map(c('Vinland', 'Cowboy'), info_anime)
+purrr::map(c('Vinland', 'Cowboy'), anime_info)
 ```
 
 should return a list with information from both the “Vinland Saga” and

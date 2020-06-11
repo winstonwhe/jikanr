@@ -9,16 +9,18 @@
 #' @importFrom rvest html_attr
 #' @importFrom utils menu
 #' @export
-#' @rdname findtag
+#' @rdname find_tag
 #'
-#' @return returns the index number for the search item; combines with info_general functions to gather the actual data
+#' @return returns the index number for the search item; combines with general_info family of functions to gather the actual data
+#'
 #' @examples
+#'
 #' \dontrun{
-#' find_tag("naruto")
-#' find_anime('naruto')
-#' find_manga('naruto)
-#' find_character("naruto")
-#' find_people("hana kana")
+#' find_tag('bakemonogatari')
+#' find_tag_anime('naruto')
+#' find_tag_manga('Opus')
+#' find_tag_character('Tomie')
+#' find_tag_people('hana kana')
 #' }
 #'
 
@@ -34,19 +36,26 @@ find_tag <- function(name = NULL, sourceType = "") {
   gsub('.*/', "", dirname(rank_data_url))[utils::menu(choices = basename(rank_data_url), title = paste('Which ', sourceType, ' do you want to choose?', sep = ""))]
 }
 
-
+#' @rdname find_tag
+#' @export
 find_tag_anime <- function(name) {
   find_tag(name, sourceType = '/anime/')
 }
 
+#' @rdname find_tag
+#' @export
 find_tag_manga <- function(name) {
   find_tag(name, sourceType = '/manga/')
 }
 
+#' @rdname find_tag
+#' @export
 find_tag_people <- function(name) {
   find_tag(name, sourceType = '/people/')
 }
 
+#' @rdname find_tag
+#' @export
 find_tag_character <- function(name) {
   find_tag(name, sourceType = '/character/')
 }
