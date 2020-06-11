@@ -10,7 +10,7 @@
 
 ## Overview
 
-jikanr is a R wrapper for the [jikan](https://jikan.moe), an unofficial
+jikanr is a R wrapper for [jikan](https://jikan.moe), an unofficial
 API for MyAnimeList.
 
 ## Installation
