@@ -30,13 +30,13 @@ devtools::install_github("winstonwhe/jikanr")
 library(jikanr)
 ```
 
-### `info_*` queries the MAL API for specific items
+### `*_info` queries the MAL API for specific items
 
 The all-purpose function `general_info` allows the user to query data
 from the [jikan](https://jikan.moe), the unofficial MyAnimeList (MAL)
 API. As a MAL search item can take on the category of manga, anime,
 character, or person, `manga_info`, `anime_info`, `character_info`, and
-`people_info` are available aliases respectively.
+`people_info` are available aliases for the user.
 
 ### seeing it in action
 
@@ -112,15 +112,58 @@ DataFrame.
 ### `find_tag` provides a prompt to make sure the correct name is used
 
 The MAL website assigns an unique number to each item in its website,
-and as a result, jikan requires that distinct value in order to
-reference the proper item that you wish to learn more about. Since it’s
-very often the case that an user won’t know that number off the top of
-her head, jikanr relies on the `find_tag` family of functions to scrap
+and as a result, jikan requires that distinct value in order to return
+the relevant information accurately. Since it’s very often the case that
+an user won’t know that number off the top of her head, jikanr solves
+the issue by relying on its own `find_tag` family of functions to scrap
 the MAL website and determine the proper value for the API call. One
-benefit of the method on which jikanr relies is that the user can search
-for part of the name, and the names returned should be identical to what
-the website search bar should display. By this method, the user should
-have no issue getting the proper item returned.
+benefit of this method is that the user’s jikanr searches will be
+identical to the ones she would receive when using the actual website.
+For example:
+
+``` r
+find_tag_anime('Abyss')
+```
+
+    Which /anime/ do you want to choose? 
+    
+     1: Made_in_Abyss
+     2: Tales_of_the_Abyss
+     3: Made_in_Abyss_2
+     4: Made_in_Abyss_Movie_3__Fukaki_Tamashii_no_Reimei
+     5: Neo_Angelique_Abyss
+     6: Made_in_Abyss_Movie_1__Tabidachi_no_Yoake
+     7: Made_in_Abyss_Movie_2__Hourou_Suru_Tasogare
+     8: Neo_Angelique_Abyss__Second_Age
+     9: Mouretsu_Pirates__Abyss_of_Hyperspace
+    10: Tales_of_the_Abyss_Special_Fan_Disc
+    
+    Selection: 1
+
+`"34599"`
+
+This also works if the name is in Japanese.
+
+``` r
+find_tag_anime('メイドインアビス')
+```
+
+    Which /anime/ do you want to choose? 
+    
+     1: Made_in_Abyss
+     2: Tales_of_the_Abyss
+     3: Made_in_Abyss_2
+     4: Made_in_Abyss_Movie_3__Fukaki_Tamashii_no_Reimei
+     5: Neo_Angelique_Abyss
+     6: Made_in_Abyss_Movie_1__Tabidachi_no_Yoake
+     7: Made_in_Abyss_Movie_2__Hourou_Suru_Tasogare
+     8: Neo_Angelique_Abyss__Second_Age
+     9: Mouretsu_Pirates__Abyss_of_Hyperspace
+    10: Tales_of_the_Abyss_Special_Fan_Disc
+    
+    Selection: 1
+
+`"34599"`
 
 ### Bulk item searches
 
