@@ -26,8 +26,6 @@ devtools::install_github("winstonwhe/jikanr")
 ## Usage
 
 ``` r
-# Installing the jikanr library
-devtools::install_github("winstonwhe/jikanr")
 # loading in the jikanr library
 library(jikanr)
 ```
