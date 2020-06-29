@@ -20,14 +20,16 @@
 #' character_info('Tomie')
 #' people_info('hana kana')
 #'}
-general_info <- function(name = NULL, type = NULL) {
+general_info <- function(name = NULL, type = NULL, auto = FALSE) {
   # make sure that an actual variable name was supplied
   attempt::stop_if_all(name, is.null, "You need to specify a name to search")
   # Check if internet connection exists
   check_internet()
   if(!is.null(type)) {
     # quick scrape to return all possible related terms to the searched name
-    tag_value <- eval(rlang::parse_expr(paste0("find_tag_", type, "('", name,"')")))
+    tag_value <- eval(rlang::parse_expr(paste0("find_tag_", type,
+                                               "(name = '", name,
+                                               "', auto = ", auto, ")")))
     api_call <- httr::GET(paste0("https://api.jikan.moe/v3/", type, "/", tag_value))
     # Checking to see if the API call went through
     check_status(api_call)
@@ -40,24 +42,24 @@ general_info <- function(name = NULL, type = NULL) {
 
 #' @rdname general_info
 #' @export
-anime_info <- function(name, type = 'anime') {
-  general_info(name, type)
+anime_info <- function(name, type = 'anime', ...) {
+  general_info(name, type, ...)
 }
 
 #' @rdname general_info
 #' @export
-manga_info <- function(name, type = 'manga') {
-  general_info(name, type)
+manga_info <- function(name, type = 'manga', ...) {
+  general_info(name, type, ...)
 }
 
 #' @rdname general_info
 #' @export
-character_info <- function(name , type = 'character') {
-  general_info(name = type)
+character_info <- function(name , type = 'character', ...) {
+  general_info(name = type, ...)
 }
 
 #' @rdname general_info
 #' @export
-people_info <- function(name , type = 'people') {
-  general_info(name = type)
+people_info <- function(name , type = 'people', ...) {
+  general_info(name = type, ...)
 }

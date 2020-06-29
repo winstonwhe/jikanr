@@ -8,15 +8,15 @@
 \alias{find_tag_character}
 \title{Find the correct name for the search item}
 \usage{
-find_tag(name = NULL, sourceType = "")
+find_tag(name = NULL, sourceType = "", auto = FALSE)
 
-find_tag_anime(name)
+find_tag_anime(name, ...)
 
-find_tag_manga(name)
+find_tag_manga(name, ...)
 
-find_tag_people(name)
+find_tag_people(name, ...)
 
-find_tag_character(name)
+find_tag_character(name, ...)
 }
 \arguments{
 \item{name}{the MAL name of interest}

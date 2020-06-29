@@ -8,15 +8,15 @@
 \alias{people_info}
 \title{Find MAL data}
 \usage{
-general_info(name = NULL, type = NULL)
+general_info(name = NULL, type = NULL, auto = FALSE)
 
-anime_info(name, type = "anime")
+anime_info(name, type = "anime", ...)
 
-manga_info(name, type = "manga")
+manga_info(name, type = "manga", ...)
 
-character_info(name, type = "character")
+character_info(name, type = "character", ...)
 
-people_info(name, type = "people")
+people_info(name, type = "people", ...)
 }
 \arguments{
 \item{name}{the MAL name of interest}
