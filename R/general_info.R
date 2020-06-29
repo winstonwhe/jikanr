@@ -28,8 +28,8 @@ general_info <- function(name = NULL, type = NULL, auto = FALSE) {
   if(!is.null(type)) {
     # quick scrape to return all possible related terms to the searched name
     tag_value <- eval(rlang::parse_expr(paste0("find_tag_", type,
-                                               "(name = '", name,
-                                               "', auto = ", auto, ")")))
+                                               "(name = \"", name,
+                                               "\", auto = ", auto, ")")))
     api_call <- httr::GET(paste0("https://api.jikan.moe/v3/", type, "/", tag_value))
     # Checking to see if the API call went through
     check_status(api_call)
